@@ -1,0 +1,55 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      lang="en"
+      metal:use-macro="context/main_template/macros/master"
+      i18n:domain="vwc.toolbar">
+<body>
+
+<metal:main fill-slot="main">
+  <metal:content-core define-macro="main">
+  
+  <article id="cms-view"
+    tal:define="portal_state context/@@plone_portal_state;
+                context_url context/absolute_url">
+
+    <header class="page-header">
+      <h1>Redaktionssystem <small>CMS Zugriff</small></h1>
+    </header>
+
+    <div id="content-core">
+      <div class="row" tal:condition="portal_state/anonymous">
+        <div class="span8">
+          <p class="lead">
+            Willkommen, um sich auf
+            der Bearbeitungsoberfl&auml;che des Redaktionssystems anzumelden
+            verwenden Sie bitte den Link <strong>Anmelden</strong>
+          </p>
+        </div>
+        <div class="span4">
+          <a href=""
+            class="btn btn-large btn-primary btn-block popoverLogin"
+            tal:attributes="href python:context_url + '/login_form'">
+            <i class="icon-signin" />
+            Anmelden</a>
+        </div>
+      </div>
+
+      <tal:signout tal:condition="not:portal_state/anonymous">
+        <div class="alert alert-block">
+          <h4>Hinweis</h4>
+          <p>Sie sind im Redaktionssystem angemeldet</p>
+          <a href=""
+            tal:attributes="href python:context_url + '/logout'">
+            <i class="icon-signout" />
+            Abmelden</a>
+        </div>
+      </tal:signout>
+    
+    </div>
+  </article>
+  </metal:content-core>
+</metal:main>
+</body>
+</html>
