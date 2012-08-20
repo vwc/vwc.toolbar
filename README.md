@@ -29,4 +29,19 @@ that provides a toolbar.
 
 Note:
 
-To get the full toolbar functionality you must provide the following details: 
+To get the full toolbar functionality you must provide the following details:
+
+* Include 'bootstrap.js' or at least 'bootstrap-dropdowns.js' in your Diazo
+theme to enable the dropdowns (this is not handled inside the toolbar package on
+purpose, since it might conflict with the themes primary usecases)
+
+* Add a rule to include the toolbar via Diazo e.g.
+    <replace css:theme="#editbar-wrapper"
+            css:content="#toolbar" />
+
+* Make room for the toolbar by moving the main site down by 40px (the toolbar
+height), example:
+    #toolbar + #site-wrapper {
+        margin-top: @navbarHeight;
+    }
+
