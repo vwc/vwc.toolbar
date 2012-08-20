@@ -37,10 +37,16 @@ purpose, since it might conflict with the themes primary usecases)
 
 * Add a rule to include the toolbar via Diazo e.g.
 
-    <replace css:theme="#editbar-wrapper" css:content="#toolbar" />
+```xml
+<replace css:theme="#editbar-wrapper" css:content="#toolbar" />
+```
 
 * Make room for the toolbar by moving the main site down by 40px (the toolbar
 height), example:
     
-    #toolbar + #site-wrapper {margin-top: @navbarHeight;}
+```css
+#toolbar + #site-wrapper {
+    margin-top: @navbarHeight;
+}
+```
 
