@@ -2,7 +2,7 @@ Introduction
 ============
 
 
-This package provides a "plone.app.toolbar" inspired tollbar, that moves the
+This package provides a "plone.app.toolbar" inspired toolbar, that moves the
 Plone CMS Editbar into a dedicated navbar/toolbar viewlet displayed on top
 of the page.
 
@@ -10,7 +10,7 @@ Details
 =======
 
 
-Install "vsc.toolbar" into the site and get 2 new features
+Install "vwc.toolbar" into the site and get 2 new features
 
 CMS View
 --------
@@ -24,7 +24,7 @@ page and not inside an overlay, as implemented by the Plone default
 Toolbar
 -------
 
-After authenticating with the portal a custom toolbar viewlet is available
+After authenticating with the portal a custom viewlet is available
 that provides a toolbar.
 
 Note:
