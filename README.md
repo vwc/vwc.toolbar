@@ -17,7 +17,7 @@ CMS View
 
 Use http://example.tld/@@cms as the default login URL of the site. This works
 around the redirection problem when the Plone login form is used as a standalone
-page and not insode an overlay, as implemented by the Plone default
+page and not inside an overlay, as implemented by the Plone default
 "sunburst" theme.
 
 
@@ -36,12 +36,11 @@ theme to enable the dropdowns (this is not handled inside the toolbar package on
 purpose, since it might conflict with the themes primary usecases)
 
 * Add a rule to include the toolbar via Diazo e.g.
-    <replace css:theme="#editbar-wrapper"
-            css:content="#toolbar" />
+
+    <replace css:theme="#editbar-wrapper" css:content="#toolbar" />
 
 * Make room for the toolbar by moving the main site down by 40px (the toolbar
 height), example:
-    #toolbar + #site-wrapper {
-        margin-top: @navbarHeight;
-    }
+    
+    #toolbar + #site-wrapper {margin-top: @navbarHeight;}
 
