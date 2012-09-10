@@ -1,4 +1,5 @@
-<div id="toolbar" class="navbar navbar-fixed-top">
+<div id="toolbar" class="navbar navbar-fixed-top"
+  i18n:domain="plone">
   <div class="navbar-inner">
     <div class="container-fluid">
 
@@ -9,7 +10,8 @@
             tal:attributes="
                 href item/url|nothing;
                 target item/link_target|nothing;"
-            tal:content="item/title">Link Title</a>
+            tal:content="item/title"
+             i18n:translate="">Link Title</a>
         </li>
       </ul>
 
@@ -21,7 +23,8 @@
             <span tal:content="item/title">Link Title</span>
             <span tal:condition="python:'extra' in item and 'stateTitle' in item['extra']"
                   tal:attributes="class item/extra/class"
-                  tal:content="item/extra/stateTitle">Private</span>
+                  tal:content="item/extra/stateTitle"
+                   i18n:translate="">Private</span>
             <b class="caret">
           </a>
           <ul class="dropdown-menu" tal:condition="item/submenu">
@@ -32,7 +35,8 @@
                 <img src="#" alt="icon"
                      tal:condition="subitem/icon|nothing"
                      tal:attributes="src subitem/icon" />
-                <span tal:content="subitem/title">Link Title</span>
+                <span tal:content="subitem/title"
+                   i18n:translate="">Link Title</span>
               </a>
             </li>
           </ul>
@@ -43,10 +47,6 @@
         <li class="dropdown" id="plone-personal-actions">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown"
              tal:attributes="href viewlet/user_homeurl">
-             <!--<img src="#" alt="user portrait"
-                  class="avatar avatar-small"
-                  tal:condition="viewlet/user_portrait"
-                  tal:attributes="src viewlet/user_portrait" />-->
             <span tal:content="viewlet/user_displayname">Fullname</span>
             <b class="caret">
           </a>
