@@ -32,9 +32,9 @@
                 tal:attributes="class subitem/klass|nothing; id subitem/id|nothing;">
               <a href="#"
                  tal:attributes="href subitem/action; target subitem/link_target|nothing;">
-                <img src="#" alt="icon"
+                <!--<img src="#" alt="icon"
                      tal:condition="subitem/icon|nothing"
-                     tal:attributes="src subitem/icon" />
+                     tal:attributes="src subitem/icon" />-->
                 <span tal:content="subitem/title"
                    i18n:translate="">Link Title</span>
               </a>
