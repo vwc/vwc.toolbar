@@ -1,4 +1,5 @@
 <div id="toolbar" class="navbar navbar-fixed-top"
+  tal:condition="not:viewlet/anonymous"
   i18n:domain="plone">
   <div class="navbar-inner">
     <div class="container-fluid">
