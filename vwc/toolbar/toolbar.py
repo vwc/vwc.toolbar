@@ -10,9 +10,12 @@ from zope.traversing.interfaces import ITraversable
 from plone.app.layout.viewlets.interfaces import IPortalHeader
 from plone.memoize.instance import memoize
 
+from vwc.toolbar.interfaces import IVWCToolbar
+
 
 class ToolbarViewlet(grok.Viewlet):
     grok.context(Interface)
+    grok.layer(IVWCToolbar)
     grok.require('zope2.View')
     grok.viewletmanager(IPortalHeader)
     grok.name('vwc.toolbar.ToolbarViewlet')
@@ -105,8 +108,8 @@ class ToolbarViewlet(grok.Viewlet):
 
             # button url
             button_url = action['url'].strip()
-            if button_url.startswith('http') or \
-               button_url.startswith('javascript'):
+            if (button_url.startswith('http') or
+                    button_url.startswith('javascript')):
                 item['url'] = button_url
             else:
                 item['url'] = '%s/%s' % (self.context_url, button_url)
@@ -115,7 +118,7 @@ class ToolbarViewlet(grok.Viewlet):
             # Attempt to resolve to a template.
             action_method = item['url'].split('/')[-1]
             action_method = self.context_fti.queryMethodID(
-                    action_method, default=action_method)
+                action_method, default=action_method)
 
             # Determine if action is activated
             if action_method:
@@ -146,7 +149,7 @@ class ToolbarViewlet(grok.Viewlet):
                 item['id'] = ''
                 item['klass'] = ''
                 if 'extra' in item:
-                    if 'id'  in item['extra'] and item['extra']['id']:
+                    if 'id' in item['extra'] and item['extra']['id']:
                         item['id'] = item['extra']['id']
                     if 'class' in item['extra'] and item['extra']['class']:
                         if item['extra']['class'] == 'actionMenuSelected':
@@ -160,7 +163,7 @@ class ToolbarViewlet(grok.Viewlet):
             return buttons
 
         plone_contentmenu = getUtility(IBrowserMenu,
-            name='plone_contentmenu').getMenuItems
+                                       name='plone_contentmenu').getMenuItems
         return contentmenu(plone_contentmenu(self.context, self.request))
 
     @memoize
@@ -198,8 +201,8 @@ class ToolbarViewlet(grok.Viewlet):
     def user_homeurl(self):
         member = self.portal_state.member()
         userid = member.getId()
-        return "%s/author/%s" % (
-                self.portal_state.navigation_root_url(), userid)
+        return "%s/author/%s" % (self.portal_state.navigation_root_url(),
+                                 userid)
 
     @memoize
     def user_actions(self):
