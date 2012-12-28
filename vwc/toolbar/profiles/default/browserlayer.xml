@@ -1,0 +1,6 @@
+<layers>
+  <layer
+    name="vwc.toolbar.layer"
+    interface="vwc.toolbar.interfaces.IVWCToolbar"
+  />
+</layers>
