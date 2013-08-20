@@ -1,4 +1,4 @@
-<div id="toolbar" class="navbar navbar-fixed-top"
+<div id="toolbar" class="navbar navbar-default navbar-fixed-top"
   tal:condition="not:viewlet/anonymous"
   i18n:domain="plone">
     <div class="xcontainer">
